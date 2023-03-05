@@ -3,7 +3,7 @@
 #include<windows.h>
 using namespace std;
 
-namespace neo
+namespace KILL_RUIJIE
 {
 	class ruijie{
 		public:
@@ -31,9 +31,9 @@ namespace neo
 
 	int main()
 	{
-		printf("»¶Ó­À´µ½KILLRUIJIE2.0\nversion:2.2\nupgrade time:2023/1/31\nprovided by neo");
+		printf("æ¬¢è¿Žæ¥åˆ°KILLRUIJIE2.0\nversion:2.2\nupgrade time:2023/1/31\nprovided by neo");
 		ruijie rj;
-		printf("ÄãÏëÒª¹Ø±ÕRUIJIE»¹ÊÇ»Ö¸´RUIJIE£¿[A/B]");
+		printf("ä½ æƒ³è¦å…³é—­RUIJIEè¿˜æ˜¯æ¢å¤RUIJIEï¼Ÿ[A/B]");
 		string str;
 		while(cin>>str)
 		{
@@ -46,6 +46,6 @@ namespace neo
 
 int main()
 {
-	neo::main();
+	KILL_RUIJIE::main();
 	return 0;
 }
