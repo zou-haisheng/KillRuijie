@@ -31,14 +31,14 @@ namespace KILL_RUIJIE
 
 	int main()
 	{
-		printf("欢迎来到KILLRUIJIE2.0\nversion:2.2\nupgrade time:2023/1/31\nprovided by neo");
+		printf("欢迎来到KILLRUIJIE2.0\nversion:2.3\nupgrade time:2023/3/19\nprovided by ZOUHAISHENG");
 		ruijie rj;
 		printf("你想要关闭RUIJIE还是恢复RUIJIE？[A/B]");
 		string str;
 		while(cin>>str)
 		{
-			if(str=="A")	rj.kill_process(rj.kill_name);
-			else if(str=="B") rj.__resume();
+			if(str=="A")	system("KILL.exe");
+			else if(str=="B") system("RESUME.exe");
 		}
 		return 0;
 	}
