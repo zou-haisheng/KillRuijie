@@ -1,6 +1,7 @@
 #include <iostream>
 #include <windows.h>
-#include <string>
+#include "RuijieCore.h"
+#include "JIYU.cpp"   // 包含极域功能
 using namespace std;
 
 void kill_ruijie();
@@ -8,16 +9,18 @@ void resume_ruijie();
 void exit_jiyu_fullscreen();
 
 int main() {
-    string str;
-    cout << "===========================\n";
-    cout << "   KillRuijie v3.0 (支持锐捷 + 极域)\n";
-    cout << "===========================\n";
-    cout << "A. 关闭锐捷客户端\n";
-    cout << "B. 恢复锐捷客户端\n";
-    cout << "C. 退出极域全屏模式\n";
-    cout << "Q. 退出程序\n";
-    cout << "请输入选项: ";
+    RuijieCore core;
+    
+    cout << "===========================" << endl;
+    cout << "   KillRuijie v3.0 (管理员权限模式)" << endl;
+    cout << "===========================" << endl;
+    cout << "A. 关闭锐捷客户端" << endl;
+    cout << "B. 恢复锐捷客户端" << endl;
+    cout << "C. 退出极域全屏模式" << endl;
+    cout << "Q. 退出程序" << endl;
+    cout << "\n请输入选项: ";
 
+    string str;
     while (cin >> str) {
         if (str == "A" || str == "a") {
             kill_ruijie();
@@ -34,4 +37,4 @@ int main() {
         cout << "\n请输入选项: ";
     }
     return 0;
-}
+}}
