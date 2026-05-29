@@ -1,45 +1,21 @@
-#include<iostream>
-#include<stdio.h>
-#include<windows.h>
+#include <windows.h>
+#include <iostream>
+#include <string>
+#include "RuijieCore.h"
 using namespace std;
 
-namespace resume
-{
-	class ruijie{
-		public:
-			char kill_name[100]="RG-CloudManagerRemote.exe";
-			string del[10]={"C:\\Program Files (x86)\\RG-CloudManagerRemote\\install.ini",
-				        "C:\\Program Files (x86)\\RG-CloudManagerRemote\\Launcher.ini",
-			            "C:\\Program Files (x86)\\RG-CloudManagerRemote\\version.ini"};
-			string resume[10]={"install.ini",
-						   "Laucher.ini",
-						   "version.ini"};
-			int __del(string s)
-			{
-				DeleteFile(s.c_str());
-			}
-			void kill_process(char task_name[])
-			{
-				system("taskkill /f /im CMLauncher.exe /t");
-				for(int i=0;i<3;i++) __del(del[i].c_str());
-			}
-			void __resume()
-			{
-				for(int i=0;i<3;i++) system(("copy "+resume[i]+" C:\\Program Files (x86)\\RG-CloudManagerRemote").c_str());
-			}
-	};
-
-	int main()
-	{
-		
-		ruijie rj;
-		rj.__resume();
-		return 0;
-	}
-}
-
-int main()
-{
-	resume::main();
-	return 0;
+void resume_ruijie() {
+    RuijieCore core;
+    cout << "正在恢复锐捷客户端..." << endl;
+    
+    string basePath = "C:\\Program Files (x86)\\RG-CloudManagerRemote\\";
+    
+    if (core.fileExists(basePath + "Launcher.ini.bak")) {
+        core.copyFile(basePath + "Launcher.ini.bak", basePath + "Launcher.ini");
+        cout << "✅ Launcher.ini 恢复成功！" << endl;
+    } else {
+        cout << "⚠️ 未找到备份文件 (Launcher.ini.bak)" << endl;
+    }
+    
+    cout << "请手动启动锐捷客户端。" << endl;
 }
