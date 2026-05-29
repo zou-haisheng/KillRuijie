@@ -1,51 +1,37 @@
-#include<iostream>
-#include<stdio.h>
-#include<windows.h>
+#include <iostream>
+#include <windows.h>
+#include <string>
 using namespace std;
 
-namespace KILL_RUIJIE
-{
-	class ruijie{
-		public:
-			char kill_name[100]="RG-CloudManagerRemote.exe";
-			string del[10]={"C:\\Program Files (x86)\\RG-CloudManagerRemote\\install.ini",
-				        "C:\\Program Files (x86)\\RG-CloudManagerRemote\\Launcher.ini",
-			            "C:\\Program Files (x86)\\RG-CloudManagerRemote\\version.ini"};
-			string resume[10]={"install.ini",
-						   "Laucher.ini",
-						   "version.ini"};
-			int __del(string s)
-			{
-				DeleteFile(s.c_str());
-			}
-			void kill_process(char task_name[])
-			{
-				system("taskkill /f /im CMLauncher.exe /t");
-				for(int i=0;i<3;i++) __del(del[i].c_str());
-			}
-			void __resume()
-			{
-				for(int i=0;i<3;i++) system(("copy "+resume[i]+" C:\\Program Files (x86)\\RG-CloudManagerRemote").c_str());
-			}
-	};
+void kill_ruijie();
+void resume_ruijie();
+void exit_jiyu_fullscreen();
 
-	int main()
-	{
-		printf("欢迎来到KILLRUIJIE2.0\nversion:2.3\nupgrade time:2023/3/19\nprovided by ZOUHAISHENG");
-		ruijie rj;
-		printf("你想要关闭RUIJIE还是恢复RUIJIE？[A/B]");
-		string str;
-		while(cin>>str)
-		{
-			if(str=="A")	system("KILL.exe");
-			else if(str=="B") system("RESUME.exe");
-		}
-		return 0;
-	}
-}
+int main() {
+    string str;
+    cout << "===========================\n";
+    cout << "   KillRuijie v3.0 (支持锐捷 + 极域)\n";
+    cout << "===========================\n";
+    cout << "A. 关闭锐捷客户端\n";
+    cout << "B. 恢复锐捷客户端\n";
+    cout << "C. 退出极域全屏模式\n";
+    cout << "Q. 退出程序\n";
+    cout << "请输入选项: ";
 
-int main()
-{
-	KILL_RUIJIE::main();
-	return 0;
+    while (cin >> str) {
+        if (str == "A" || str == "a") {
+            kill_ruijie();
+        } else if (str == "B" || str == "b") {
+            resume_ruijie();
+        } else if (str == "C" || str == "c") {
+            exit_jiyu_fullscreen();
+        } else if (str == "Q" || str == "q") {
+            cout << "程序已退出。" << endl;
+            break;
+        } else {
+            cout << "无效选项，请重新输入！" << endl;
+        }
+        cout << "\n请输入选项: ";
+    }
+    return 0;
 }
